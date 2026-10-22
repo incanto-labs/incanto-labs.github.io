@@ -1,0 +1,394 @@
+/* Incanto Labs — the game's "Biscuit" palette (watery-rings docs/ui-style.md). */
+
+@font-face {
+  font-family: "Nunito";
+  src: url("fonts/Nunito-Latin.woff2") format("woff2");
+  font-weight: 200 1000;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --paper: #fff0df;
+  --card: #f7e9d2;
+  --card-light: #fbf1e0;
+  --card-edge: #e3cca8;
+  --inset: #eedab9;
+  --ink: #30211a;
+  --ink-soft: rgba(48, 33, 26, 0.72);
+  --toast: #ebd3ae;
+  --toast-edge: #c9a47a;
+  --coral: #e2643f;
+  --coral-edge: #b44a2b;
+  --link: #a8441f;
+  --radius: 22px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Nunito", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Hiragino Maru Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--link);
+  text-underline-offset: 0.15em;
+  overflow-wrap: anywhere;
+}
+
+a:hover {
+  color: var(--coral-edge);
+}
+
+:focus-visible {
+  outline: 3px solid var(--coral);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* --- Header and footer ---------------------------------------------------- */
+
+.site-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 22px;
+  padding-bottom: 22px;
+}
+
+.brand {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.brand:hover {
+  color: var(--ink);
+}
+
+.site-foot {
+  margin-top: 56px;
+  padding-top: 22px;
+  padding-bottom: 40px;
+  border-top: 1px solid var(--card-edge);
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.site-foot p {
+  margin: 0.25em 0;
+}
+
+/* --- Cards and buttons --------------------------------------------------- */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-edge);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 0 var(--card-edge);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 10px 22px;
+  border-radius: 16px;
+  background: var(--toast);
+  box-shadow: 0 4px 0 var(--toast-edge);
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 60ms ease, box-shadow 60ms ease;
+}
+
+.btn:hover {
+  color: var(--ink);
+}
+
+.btn:active {
+  transform: translateY(4px);
+  box-shadow: 0 0 0 var(--toast-edge);
+}
+
+.btn-primary {
+  background: var(--coral);
+  box-shadow: 0 4px 0 var(--coral-edge);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+}
+
+.btn-primary:active {
+  box-shadow: 0 0 0 var(--coral-edge);
+}
+
+/* --- Home page ----------------------------------------------------------- */
+
+.game {
+  display: grid;
+  grid-template-columns: 148px 1fr;
+  gap: 28px;
+  align-items: center;
+  padding: 28px;
+}
+
+.game-icon {
+  display: block;
+  width: 148px;
+  height: 148px;
+  border-radius: 34px;
+  box-shadow: 0 4px 0 var(--card-edge);
+}
+
+.game h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.game-jp {
+  margin: 2px 0 0;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.lede {
+  margin: 12px 0 20px;
+  font-size: 1.08rem;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 14px;
+}
+
+.about {
+  margin-top: 40px;
+}
+
+.about h3 {
+  margin: 32px 0 8px;
+  font-size: 1.2rem;
+  font-weight: 900;
+}
+
+.about p {
+  margin: 0 0 1em;
+}
+
+@media (max-width: 560px) {
+  .game {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 18px;
+    padding: 24px 20px;
+    text-align: center;
+  }
+
+  .game-icon {
+    width: 120px;
+    height: 120px;
+    border-radius: 28px;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .actions .btn {
+    flex: 1 1 100%;
+  }
+
+  .policy h1 {
+    font-size: 1.5rem;
+  }
+
+  .policy-head img {
+    width: 52px;
+    height: 52px;
+    border-radius: 13px;
+  }
+}
+
+/* --- Privacy policy ------------------------------------------------------ */
+
+.policy-head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.policy-head img {
+  flex: none;
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  box-shadow: 0 3px 0 var(--card-edge);
+}
+
+.policy h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.effective {
+  margin: 0 0 24px;
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.policy h2 {
+  margin: 2.2em 0 0.5em;
+  font-size: 1.3rem;
+  font-weight: 900;
+  line-height: 1.3;
+  scroll-margin-top: 16px;
+}
+
+.policy p,
+.policy ul {
+  margin: 0 0 1em;
+}
+
+.policy ul {
+  padding-left: 1.3em;
+}
+
+.policy li {
+  margin-bottom: 0.45em;
+}
+
+.policy strong {
+  font-weight: 800;
+}
+
+.summary {
+  padding: 8px 24px 6px;
+  margin: 24px 0 8px;
+}
+
+.summary h2 {
+  margin-top: 0.9em;
+}
+
+.services {
+  width: 100%;
+  margin: 0 0 1em;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card-light);
+  border: 1px solid var(--card-edge);
+  border-radius: 16px;
+  overflow: hidden;
+  font-size: 0.94rem;
+  line-height: 1.5;
+}
+
+.services th,
+.services td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--card-edge);
+  text-align: left;
+  vertical-align: top;
+}
+
+.services thead th {
+  background: var(--inset);
+  font-weight: 900;
+}
+
+.services tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.services td:first-child {
+  width: 26%;
+}
+
+@media (max-width: 640px) {
+  .services thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .services,
+  .services tbody,
+  .services tr,
+  .services td {
+    display: block;
+    width: 100%;
+  }
+
+  .services tr {
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--card-edge);
+  }
+
+  .services tbody tr:last-child {
+    border-bottom: 0;
+  }
+
+  .services td,
+  .services td:first-child {
+    width: 100%;
+    padding: 0 0 8px;
+    border: 0;
+  }
+
+  .services td:first-child {
+    font-size: 1.02rem;
+  }
+
+  .services td + td::before {
+    content: attr(data-label);
+    display: block;
+    color: var(--ink-soft);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+}
